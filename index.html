@@ -1,0 +1,134 @@
+<!-- created by: Muhammad Salawu -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/digital-7-mono" rel="stylesheet">
+        <title>calculator</title>
+        <style>
+             body{
+                 background-color:#1E293B;
+                 display:flex;
+                 flex-direction:column;
+                 justify-content:center;
+                 align-items:center;
+                 height:100vh
+             }
+            .container{
+                width:300px;
+                background-color:#0F172A;
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding:10px 10px;
+                gap:10px;
+                border-radius:20px;
+                margin:auto;
+            }
+            button{
+                background-color:#2563EB;
+                color:white;
+                cursor:pointer;
+                border:none;
+                border-radius:40px;
+                width:100%;
+                height:60px;
+                font-size:20px;
+                transition:transform 0.2s; 
+                user-select:none;  
+            }
+            button:active{
+                transform:scale(0.95);
+            }
+            .display{
+                grid-column: 1 / 5;
+                overflow: hidden;
+                background:white;
+                height:60px;
+                margin:10px;
+                padding:5px 10px;
+                border-radius:10px;
+                text-align:right;
+                display:flex;
+                align-items:center;
+                justify-content:flex-end;
+                font-size:38px;
+                font-family:"Digital-7 Mono", monospace;
+                user-select:none;
+            }
+            .operator1{
+                background-color:green;
+            }
+            .operator2,.operator3,.operator4,.operator6{
+                background-color:#F59E0B;
+            }
+            .operator5{
+                background-color:#EF4444;
+            }
+            .operator7{
+                background-color:lightgrey;
+                color:black;
+                transition: transform 0.4s;
+            }
+            .operator7:active{
+                transform:scale(0.95)  rotate(20deg);
+            }
+            footer{
+                color:lightgrey;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="container">
+           <div class="display" id="display">0</div>
+           <button onclick="output(7)">7</button>
+           <button onclick="output(8)">8</button>
+           <button onclick="output(9)">9</button>
+           <button class="operator1" onclick="">DEL</button>
+           <button onclick="output(4)">4</button>
+           <button onclick="output(5)">5</button>
+           <button onclick="output(6)">6</button>
+           <button class="operator2" onclick="output('/')">/</button>
+           <button onclick="output(1)">1</button>
+           <button onclick="output(2)">2</button>
+           <button onclick="output(3)">3</button>
+           <button class="operator3" onclick="output('*')">*</button>
+           <button onclick="output('.')">.</button>
+           <button onclick="output('00')">00</button>
+           <button onclick="output(0)">0</button>
+           <button class="operator4" onclick="output('-')">-</button>
+           <button onclick="output('(')">(</button>
+           <button onclick="output(')')">)</button>
+           <button onclick="output('%')">%</button>
+           <button class="operator6" onclick="output('+')">+</button>
+           <button class="operator5" onclick="clearScreen()">CE</button>
+           <button onclick="changeSign()">±</button>
+           <button onclick="squrt()">√</button>
+           <button class="operator7" onclick="answer()">=</button>
+           
+           
+       </div>
+       <footer>© Created by: Muhammad Salawu</footer> 
+    </body>
+    <script>
+       let value1 = document.getElementById("display");
+       function output(value){
+         if ( value1.textContent === "0"){
+           value1.textContent = value;
+           }
+         else{
+             value1.textContent += value;
+         }
+       }
+       function clearScreen(){
+           value1.textContent = 0
+       }
+       function answer(){
+           value1.textContent = eval(value1.textContent)
+       }
+       function changeSign(){
+          value1.textContent = value1.textContent * -1; 
+       }
+       function squrt(){
+          value1.textContent = Math.sqrt(value1.textContent); 
+       }
+    </script>
+</html>
