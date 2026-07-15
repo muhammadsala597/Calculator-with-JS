@@ -30,7 +30,7 @@ Future Improvements
 
 Screenshot
 
-Add a screenshot of the calculator here.
+
 
 Author
 
